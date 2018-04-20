@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"strconv"
 
 	"github.com/alastairruhm/go-rixcloud/rixcloud"
 
@@ -36,11 +35,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	upload, _ := strconv.Atoi(v.Upload)
+	upload := v.Upload
 	fmt.Printf("upload  : %5d M\n", upload>>20)
-	dowload, _ := strconv.Atoi(v.Download)
+	dowload := v.Download
 	fmt.Printf("download: %5d M\n", dowload>>20)
 	fmt.Printf("used    : %5d M\n", (upload+dowload)>>20)
-	total, _ := strconv.Atoi(v.Total)
+	total := v.Total
 	fmt.Printf("total   : %5d M\n", total>>20)
 }
